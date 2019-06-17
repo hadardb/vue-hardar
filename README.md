@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vue-hardar
 
 ## Project setup
@@ -27,3 +28,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# -
+vuecli3
+>>>>>>> e971da770a0aff9b61d534c7fdc8dc84b20bd8ef
