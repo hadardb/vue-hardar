@@ -1,12 +1,10 @@
 <template>
-    <div>
-      I am child
-    </div>
+    <b>404 page</b>
 </template>
 
 <script>
 export default {
-  name: 'child'
+  name: 'erroe_404'
 }
 </script>
 

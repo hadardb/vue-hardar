@@ -1,11 +1,13 @@
 <template>
-    $END$
+    <div>
+      I am Children
+    </div>
 </template>
 
 <script>
-  export default {
-    name: 'children'
-  }
+export default {
+  name: 'children'
+}
 </script>
 
 <style scoped>

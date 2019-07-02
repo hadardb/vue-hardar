@@ -1,5 +1,7 @@
 <template>
-    $END$
+    <div>
+      tel:123124213
+    </div>
 </template>
 
 <script>
