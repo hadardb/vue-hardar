@@ -11,7 +11,6 @@
     </transition-group>
   </div>
 </template>
-
 <style lang="less">
   .routeTrans-enter{
     opacity: 0;
