@@ -6,12 +6,14 @@
     <button @click="handleClick('back')">返回</button>
     <button @click="handleClick('parent')">跳转parent</button>
     <button @click="handleClick('argu')">替换至argu</button>
+    <button @click="getInfo">请求数据</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+import { getUserInfo } from '@/api/user'
 
 export default {
   name: 'home',
@@ -34,7 +36,7 @@ export default {
   // 在页面离开时调用
   beforeRouteLeave (to, from, next) {
     const leave = confirm('您确定要离开吗？')
-    if(leave) next()
+    if (leave) next()
     else next(false)
   },
   methods: {
@@ -57,6 +59,11 @@ export default {
         })
         // 替换路由 无法返回至之前页
       }
+    },
+    getInfo () {
+      getUserInfo({ userId: 11 }).then(res => {
+        console.log(res)
+      })
     }
   }
 }

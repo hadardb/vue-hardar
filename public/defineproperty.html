@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>definePriperty</title>
+</head>
+<body>
+<script>
+     var obj ={}
+     var q = 'sun'
+
+     class Dep{
+       constructor(){
+         this.subs = []
+       }
+       addSub(sub){
+         this.subs.push(sub)
+       }
+       removeSub(sub){
+         remove(this.sunbs, sub)
+       }
+       depend(){
+         if(window.target){
+           this.addSub(window.target)
+         }
+       }
+       notify(){
+         const subs = this.subs.slice()
+         for(let i = 0, l = subs.length;i <l; i++){
+           subs[i].update()
+         }
+       }
+     }
+     function remove(arr,item){
+       if(arr.length){
+         const index = arr.indexOf(item)
+         if(index > -1){
+           return arr.splice(index,1)
+         }
+       }
+     }
+
+     class Watcher{
+       constructor(vm, expOrFn, cb){
+         this.vm = vm
+         this.getter = parsePath(expOrFn)
+         this.cb = cb
+         this.value = this.get()
+       }
+
+       get(){
+         window.target =this
+         let value = this.getter.call(this.vm, this.vm)
+         window.target = undefined
+         return value
+       }
+
+       update(){
+         const oldValue = this.value
+         this.value = this.get()
+         this.cb.call(this.vm, this.value, oldValue)
+       }
+     }
+
+     // defineReactive(obj,'name',q)
+     function defineReactive(data,key,val){
+       let dep = new Dep()
+       Object.defineProperty(data,key,{
+         get: function(){
+           dep.depend()
+           return val
+         },
+         set: function(newVal){
+           if(val === newVal) return
+           val = newVal
+           dep.notify()
+         },
+         configurable: true,
+         enumerable: true
+       })
+     }
+    var abc=[1,2,3]
+     console.log(abc.slice())
+    console.log(obj.name)
+     obj.name= 'sunss'
+    console.log(obj.name)
+</script>
+</body>
+</html>
