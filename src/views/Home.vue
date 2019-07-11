@@ -7,6 +7,7 @@
     <button @click="handleClick('parent')">跳转parent</button>
     <button @click="handleClick('argu')">替换至argu</button>
     <button @click="getInfo">请求数据</button>
+    <img :src="imgUrl">
   </div>
 </template>
 
@@ -19,6 +20,11 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  data () {
+    return {
+      imgUrl: ''
+    }
   },
   props: {
     fruit: {
@@ -63,6 +69,7 @@ export default {
     getInfo () {
       getUserInfo({ userId: 11 }).then(res => {
         console.log(res)
+        this.imgUrl = res.data.img
       })
     }
   }
