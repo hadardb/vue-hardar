@@ -40,6 +40,21 @@ export default [
     component: () => import('@/views/argu.vue'),
     props: true // bool模式 将导航栏中的name直接当成props传给模板
   },
+  {
+    path: '/count-to',
+    name: 'count-to',
+    component: () => import('@/views/count-to.vue')
+  },
+  {
+    path: '/split-pane',
+    name: 'split_pane',
+    component: () => import('@/views/split-pane.vue')
+  },
+  {
+    path: '/render-page',
+    name: 'render_page',
+    component: () => import('@/views/render-page.vue')
+  },
   // 嵌套路由
   {
     path: '/parent',
